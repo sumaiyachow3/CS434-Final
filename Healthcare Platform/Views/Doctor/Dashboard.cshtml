@@ -1,0 +1,19 @@
+﻿@model List<Healthcare_Platform.Models.DoctorAppointmentViewModel>
+
+<h2>Doctor Dashboard</h2>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No appointments yet.</p>
+}
+else
+{
+    foreach (var appt in Model)
+    {
+        <div style="border:1px solid black; margin:10px; padding:10px;">
+            <p><strong>Patient:</strong> @appt.PatientName</p>
+            <p><strong>Date:</strong> @appt.DateTime</p>
+            <p><strong>Status:</strong> @appt.Status</p>
+        </div>
+    }
+}

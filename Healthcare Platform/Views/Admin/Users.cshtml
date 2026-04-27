@@ -1,0 +1,10 @@
+﻿@model List<Healthcare_Platform.Models.User>
+
+<h2>All Users</h2>
+
+@foreach (var user in Model)
+{
+    <div style="border:1px solid black; margin:10px; padding:10px;">
+        <p>@user.Name (@user.Email)</p>
+    </div>
+}

@@ -1,0 +1,12 @@
+﻿<form method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="doctorId" value="@ViewBag.DoctorId" />
+
+    <label>Select Date & Time:</label>
+    <input type="datetime-local" name="dateTime" />
+
+    <br /><br />
+
+    <button type="submit">Book</button>
+</form>

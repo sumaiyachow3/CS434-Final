@@ -1,0 +1,24 @@
+﻿@model List<Healthcare_Platform.Models.Appointment>
+
+<h2>Calendar View</h2>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No appointments scheduled.</p>
+}
+else
+{
+    foreach (var group in Model.GroupBy(a => a.DateTime.Date))
+    {
+        <h3>@group.Key.ToShortDateString()</h3>
+
+        foreach (var appt in group)
+        {
+            <div style="margin-left:20px;">
+                <p>
+                    @appt.DateTime.ToShortTimeString() - @appt.Status
+                </p>
+            </div>
+        }
+    }
+}

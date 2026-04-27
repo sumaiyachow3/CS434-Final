@@ -1,0 +1,17 @@
+﻿@model List<Healthcare_Platform.Models.Doctor>
+
+<h2>Doctors</h2>
+
+<a href="@Url.Action("AddDoctor", "Admin")">Add New Doctor</a>
+
+@foreach (var doc in Model)
+{
+    <div style="border:1px solid black; margin:10px; padding:10px;">
+        <p>@doc.Specialization</p>
+        <p>@doc.Availability</p>
+
+        <a href="@Url.Action("DeleteDoctor", "Admin", new { id = doc.Id })">
+            Delete
+        </a>
+    </div>
+}

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <h2>Welcome to the Healthcare Platform</h2>
+
+    <p>You are logged in successfully.</p>
+
+    <br />
+
+    <a href="@Url.Action("Index", "Doctor")" class="btn btn-primary">
+        View Doctors
+    </a>
+
+    <a href="@Url.Action("Logout", "Account")" class="btn btn-danger">
+        Logout
+    </a>
+    <a href="@Url.Action("Dashboard", "Doctor")" class="btn btn-primary">
+        Doctor Dashboard
+    </a>
+    <a href="@Url.Action("Calendar", "Appointment")" class="btn btn-primary">
+        View Calendar
+    </a>
+    <a href="@Url.Action("Index", "Admin")" class="btn btn-danger">
+        Admin Panel
+    </a>
+
+    <hr />
+</main>

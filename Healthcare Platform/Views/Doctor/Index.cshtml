@@ -1,0 +1,32 @@
+﻿@model List<Healthcare_Platform.Models.Doctor>
+
+@{
+    ViewBag.Title = "Doctors";
+}
+
+<main>
+    <h2>Available Doctors</h2>
+
+    @if (Model == null || Model.Count == 0)
+    {
+        <p>No doctors available.</p>
+    }
+    else
+    {
+        foreach (var doc in Model)
+        {
+            <div style="border:1px solid black; padding:10px; margin:10px;">
+                <h3>@doc.Specialization</h3>
+                <p><strong>Availability:</strong> @doc.Availability</p>
+                <p><strong>Rating:</strong> @doc.Rating</p>
+
+                
+                <a href="@Url.Action("Book", "Appointment", new { doctorId = doc.Id })"
+                   class="btn btn-primary">
+                    Book Appointment
+                </a>
+            </div>
+        }
+    }
+
+</main>

@@ -1,0 +1,24 @@
+﻿@model Healthcare_Platform.Models.User
+
+<h2>Register</h2>
+
+<form method="post">
+    <input name="Name" placeholder="Name" /><br />
+    <input name="Email" placeholder="Email" /><br />
+    <input name="Password" type="password" placeholder="Password" /><br />
+
+    <select name="Role">
+        <option value="Patient">Patient</option>
+        <option value="Doctor">Doctor</option>
+    </select><br />
+
+    <button type="submit">Register</button>
+    <hr />
+
+    <p>Already have an account?</p>
+
+    <a href="@Url.Action("Login", "Account")" class="btn btn-secondary">
+        Back to Login
+    </a>
+
+</form>

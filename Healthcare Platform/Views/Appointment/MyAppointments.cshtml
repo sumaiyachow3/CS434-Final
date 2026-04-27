@@ -1,0 +1,40 @@
+﻿@model List<Healthcare_Platform.Models.AppointmentViewModel>
+
+<h2>My Appointments</h2>
+
+@if (TempData["Message"] != null)
+{
+    <p style="color:green; font-weight:bold;">
+        @TempData["Message"]
+    </p>
+}
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No appointments found.</p>
+}
+else
+{
+    foreach (var appt in Model)
+    {
+        <div style="border:1px solid black; margin:10px; padding:10px;">
+            <p><strong>Doctor:</strong> @appt.DoctorName</p>
+            <p><strong>Date:</strong> @appt.DateTime</p>
+            <p><strong>Status:</strong> @appt.Status</p>
+
+            @if (appt.Status == "Booked" && appt.DateTime > DateTime.Now)
+            {
+                <p style="color:blue;">
+                    Reminder: Upcoming appointment
+                </p>
+            }
+
+            @if (appt.Status == "Booked")
+            {
+                <a href="@Url.Action("Cancel", "Appointment", new { id = appt.Id })">
+                    Cancel
+                </a>
+            }
+        </div>
+    }
+}
